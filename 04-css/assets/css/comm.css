@@ -1,0 +1,246 @@
+@import url(fonts.css);
+@import url(reset.css);
+
+* {
+  color: #222;
+}
+.desc2 {
+  font-size: 22px;
+  color: #7b3535;
+  font-weight: 800;
+}
+.desc1 {
+  color: #abcdaa;
+}
+p.desc1 {
+  color: #abcdef;
+}
+
+/* css의기초.html */
+/* main */
+#main {
+  width: 500px;
+  height: 700px;
+  background-color: pink;
+}
+
+/* header */
+.header {
+  background-color: #ccc;
+}
+
+.header.dark {
+  background-color: #333;
+}
+
+.header .depth1 {
+  background-color: blue;
+}
+
+.depth1 li {
+  background-color: yellow;
+}
+
+.depth1 a {
+  color: green;
+}
+
+/* 
+.header nav .depth1 li a {
+  color: aqua;
+} 
+위와 같이 선택자를 많이 쓰는 것은 권장하지 않음
+아래와 같이 최대 3개까지 적는 것을 권장함 
+*/
+
+#gnb .depth1 a {
+  color: red;
+}
+
+#gnb .depth1 > li {
+  background: orange;
+}
+
+#gnb .depth1 > li > a {
+  color: blue;
+}
+
+#gnb .depth2 a {
+  color: green;
+}
+
+#gnb .depth2 a:hover {
+  background-color: #000;
+}
+/* /header */
+
+/* input */
+.input {
+  width: 300px;
+  height: 50px;
+}
+
+.input:focus {
+  background: #000;
+  color: #fff;
+}
+/* /input */
+
+/* main */
+/* section.bbs */
+.bbs li a {
+  color: hotpink;
+}
+
+.bbs li:first-child {
+  background-color: beige;
+}
+
+.bbs li:first-child a {
+  color: #f00;
+}
+
+.bbs li:last-child {
+  background: yellow;
+}
+
+.bbs li:last-child a {
+  color: #000;
+}
+
+.bbs li:nth-child(2) {
+  background: #00f;
+}
+
+.bbs li:nth-child(2) a {
+  color: #fff;
+}
+/* /section.bbs */
+
+/* section.goto */
+.goto li::before {
+  content: ">";
+}
+
+.goto li::after {
+  content: "<";
+}
+
+.goto li a::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url(../mobile_212852414260.png) 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.goto li a::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url(../thumb.jpeg) center no-repeat;
+  background-size: 100%;
+}
+
+.goto li a {
+  color: hotpink;
+}
+
+/* !important 우선순위 가장 높음(10000점) */
+.goto a {
+  color: #000 !important;
+}
+
+/* section.icon */
+.icon li:first-child::before {
+  content: "\f015";
+  font-family: "Line Awesome Free";
+  font-weight: 900;
+}
+
+.icon li:first-child a::after {
+  content: "*";
+}
+
+.icon li:nth-child(2)::before {
+  content: "\f002";
+  font-family: "Line Awesome Free";
+  font-weight: 900;
+}
+
+.icon li:nth-child(3)::before {
+  content: "\f09b";
+  font-family: "Line Awesome Brands";
+}
+
+.icon li:nth-child(4)::before {
+  content: "\f16d";
+  font-family: "Line Awesome Brands";
+}
+
+.icon li:last-child::before {
+  content: "\f167";
+  font-family: "Line Awesome Brands";
+}
+/* /section.icon */
+/* /css의기초.html*/
+
+/* font.html */
+/* font */
+.font-size1 {
+  font-size: 20px;
+}
+
+.font-size2 {
+  font-size: 1.25em;
+  /* 
+  -em나 %은 상대값 : 부모요소를 기준으로 늘어가고 줄어듦
+  -px은 절대값
+  -상대값을 주로 사용 
+  -예) reset.css에서 전체 폰트 사이즈를 16px로 하고 comm.css에서 1.25em으로 설정하면
+  16px을 기준으로 1.25em으로 계산됨
+  */
+}
+
+.font-size3 {
+  /* 전체 16px 기준으로 1.667em = 20px */
+  font-size: 1.667em;
+}
+
+.font-size4 {
+  /* 부모 폰트 사이즈는 .font-size3  */
+  font-size: 1.667em;
+}
+
+.font-size5 {
+  font-size: 1.667rem;
+}
+
+.font-size6 {
+  font-size: 1.667rem;
+}
+
+.font-size7 {
+  font-size: 5vw;
+}
+
+/* font-family */
+.font-f1 {
+  font-family: "Sofia", cursive;
+}
+
+.font-f2 {
+  font-family: "Trirong", serif;
+}
+
+.font-f3 {
+  font-family: "Dosis", sans-serif;
+}
+
+.font-f4 {
+  font-family: "KBO-Dia-Gothic_bold";
+  font-weight: 700;
+  font-style: normal;
+}

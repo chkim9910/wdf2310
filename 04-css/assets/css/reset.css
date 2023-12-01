@@ -1,0 +1,10 @@
+/* reset 전체 셋팅값(기준) */
+/* 폰트 import는 fonts.css에 넣어주기 */
+* {
+  /* 브라우저의 기본폰트 사이즈 16px=1em */
+  /* font-size: 12px; */
+  font-family: "Noto Sans KR", "Malgun Gothic", "맑은 고딕", helvetica,
+    "Apple SD Gothic Neo", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
