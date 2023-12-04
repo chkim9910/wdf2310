@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/comm.css" />
+    <title>Text</title>
+  </head>
+  <body>
+    <h1>Text</h1>
+    <h2>text-align</h2>
+
+    <div class="text1">글씨 정렬</div>
+    <style>
+      .text1 {
+        width: 100%;
+        background: #aaa;
+      }
+    </style>
+
+    <div class="text2">가운데 정렬</div>
+    <style>
+      .text2 {
+        width: 100%;
+        text-align: center;
+        background: #888;
+      }
+    </style>
+
+    <div class="text3">오른쪽 정렬</div>
+    <style>
+      .text3 {
+        text-align: right;
+        background: #777;
+      }
+    </style>
+    <br /><br />
+
+    <!-- div는 블럭요소 -->
+    <!-- 블럭요소는 text-align해도 적용되지 않음/따라서 인라인(inline)요소로 바꿔줘야 함 -->
+    <div class="box1">
+      <div class="box2">인라인 요소</div>
+    </div>
+    <style>
+      .box1 {
+        text-align: center;
+        width: 500px;
+        height: 200px;
+        background: pink;
+      }
+      .box2 {
+        line-height: 100px;
+        display: inline-block;
+        margin-top: 50px;
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+      }
+    </style>
+
+    <br />
+    <h2>vertical-align:middle;</h2>
+    <!-- img는 인라인 요소 -->
+    <img src="./images/w.jpg" alt="네이버 웨일" class="img-w" />네이버웨일
+    <style>
+      .img-w {
+        /* display: block; */
+        /* 블럭요소에서는 vertical-align을 사용할 수 없음 */
+        /* 인라인요소에서만 가능 */
+        vertical-align: middle;
+      }
+    </style>
+
+    <br /><br />
+    <h2>text-decoration&amp;text-transformation&amp;letter-spacing</h2>
+    <a href="#">goto</a>
+    <style>
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 20px;
+      }
+    </style>
+
+    <br /><br />
+    <h2>text-indent</h2>
+    <div class="indent">글씨 날려버림</div>
+    <!-- 일반인에게는 안 보이게 하고(대신 이미지), 시각장애인에게는 들리게 하기 위해 -->
+    <style>
+      .indent {
+        text-indent: -9999px;
+      }
+    </style>
+    <br />
+    <h2>line-height&amp;letter-spacing</h2>
+    <div class="txt1">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum blanditiis
+      fugit corrupti illum earum, necessitatibus perspiciatis voluptates! Illum
+      sunt voluptatum, nobis quae eum amet culpa! Consequatur natus officiis
+      mollitia sed!
+    </div>
+    <style>
+      .txt1 {
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: -0.5px;
+      }
+    </style>
+
+    <br /><br />
+    <h2>white-space</h2>
+    <!-- 한 줄로 만들어줌 -->
+    <div class="txt2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
+      consectetur cum! Omnis dolor quidem corporis, minima dolores nostrum
+      delectus et aut, sed mollitia error del eniti similique suscipit, porro
+      aperiam autem.
+    </div>
+    <style>
+      .txt2 {
+        font-size: 1rem;
+        white-space: nowrap;
+        /*  overflow: hidden; 넘치는 애들을 없애줌 */
+        overflow: hidden;
+        /*  text-overflow: ellipsis; 넘치는 애들을 ...으로 처리해줌 */
+        text-overflow: ellipsis;
+      }
+    </style>
+  </body>
+</html>
