@@ -8,4 +8,13 @@
   /* font-weight: 400; */
   letter-spacing: -0.4px;
   line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* 
+  reset.css에 반드시 들어가야 할 세가지
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+   */
 }

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Model</title>
+  </head>
+  <body>
+    <h1>Box Model</h1>
+    <div class="box1">컨텐츠</div>
+    <style>
+      .box1 {
+        width: 500px;
+        height: 100px;
+        background-color: beige;
+        border: 5px solid #999;
+        padding-top: 50px;
+        padding-left: 100px;
+        margin-left: 50px;
+      }
+    </style>
+    <br />
+
+    <h2>Width(100%)&amp;Height(0)</h2>
+    <!-- block 요소 -->
+    <!-- width:100%, height:0 -->
+    <!-- height는 %로 잘 쓰지 않음 -->
+    <div class="box2">컨텐츠</div>
+    <div class="box2">컨텐츠</div>
+    <div class="box2">컨텐츠</div>
+
+    <!-- inline 요소 -->
+    <!-- width, height 값이 안 들어감 -->
+    <span class="box3">inline</span>
+    <span class="box3">inline</span>
+    <span class="box3">inline</span>
+
+    <!-- inline-block 요소 -->
+    <span class="box4">inline-block</span>
+    <span class="box4">inline-block</span>
+    <span class="box4">inline-block</span>
+
+    <style>
+      .box2 {
+        /* width: 50%; */
+        /* height: 100px; */
+        /* width: 300px; */
+        background-color: pink;
+      }
+      .box3 {
+        background-color: hotpink;
+        float: left;
+        /* width: 100%;
+        height: 50px; */
+      }
+      .box4 {
+        clear: both;
+        display: inline-block;
+        background-color: rosybrown;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        padding-top: 10px;
+      }
+    </style>
+    <br />
+
+    <h2>max-width(최대 가로 사이즈)</h2>
+    <div class="maxw">max-width</div>
+    <div class="minw">min-width</div>
+    <style>
+      .maxw {
+        background-color: peru;
+        height: 300px;
+        max-width: 1280px;
+        /* 1280px=80rem */
+        max-height: 200px;
+        margin: 0 auto;
+        /* margin: 0 auto; 가운데 정렬 */
+      }
+      .minw {
+        background-color: olive;
+        height: 200px;
+        min-width: 320px;
+        min-height: 100vh;
+        /* min-height: 100vh;는 화면을 세로 기준으로 꽉 채워줌 */
+      }</style
+    ><br />
+
+    <h2>border</h2>
+    <div class="border">border</div>
+
+    <style>
+      .border {
+        height: 300px;
+        background-color: #ccc;
+        /* border: 1px dashed #000;
+        border-width: 5px;
+        border-color: rgba(255, 0, 0, 0.7); */
+        border-bottom: 1px solid rgba(255, 0, 0, 0.7);
+        /* shorthand */
+        /* border: none; */
+        /* bdn으로 입력하면 border: none;로 자동완성됨 */
+        border-radius: 301px;
+        /* 박스의 높이 값만큼 radius를 넣어주면 둥근 테두리를 만들 수 있음 */
+        /* 직사각형에서는 border-radius를 %로 넣어도 정사각형과 같이 적용되지 않음 */
+      }
+    </style>
+    <br />
+
+    <h2>border-radius</h2>
+    <div class="radius"></div>
+
+    <style>
+      .radius {
+        border-radius: 100%;
+        /* 정사각형일 경우 border-radius는 50%부터 원이 됨(%를 사용하는 것이 편함, 정사각일 경우) */
+        height: 200px;
+        width: 200px;
+        background-color: plum;
+      }
+    </style>
+    <br />
+
+    <h2>padding</h2>
+    <div class="padding">padding</div>
+    <div class="padding">padding가나다라마바사</div>
+    <div class="padding">padding</div>
+
+    <style>
+      /* 유동적인 버튼을 만들고 싶을 때 */
+      /* display: inlin-block으로 변경 */
+      /* width:100% (기본값)해제 */
+      /* padding으로 여백 조절 */
+      .padding {
+        display: inline-block;
+        width: 200px;
+        border: 1px solid #000;
+        border-radius: 32px;
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+        float: left;
+      }
+    </style>
+    <br />
+
+    <h2>padding2</h2>
+    <div class="padding2">padding2</div>
+
+    <style>
+      .padding2 {
+        display: inline-block;
+        border: 1px solid #000;
+        background-color: #999;
+        margin-top: 50px;
+        padding: 20px 30px 40px;
+      }
+    </style>
+    <br />
+
+    <h2>margin</h2>
+    <div class="margin">margin</div>
+    <div class="margin box">margin</div>
+    <div class="margin">margin</div>
+    <div class="margin2">
+      block 요소 가운데 정렬
+      <div class="margin3">가운데 정렬</div>
+    </div>
+
+    <style>
+      .margin {
+        margin: 60px;
+        border: 1px solid #000;
+        background-color: olivedrab;
+        /* margin은 겹쳐서 적용됨 */
+      }
+      .box {
+        margin-top: 120px;
+      }
+
+      .margin2 {
+        /* inline요소는 가운데 정렬 적용안됨(margin:auto;) */
+        /* display: inline; */
+        height: 200px;
+        width: 500px;
+        margin: auto;
+        border: 1px solid #ccc;
+        background-color: orange;
+        text-align: center;
+        /* padding-top: 100px; */
+      }
+      .margin3 {
+        width: 50%;
+        margin: 0 auto;
+        /* margin: auto;는 m:a로 작성하면 자동완성됨 */
+        /* margin은 세로 auto가 적용되지 않음/세로는 기본값이 0이기 때문 */
+      }
+    </style>
+    <br />
+
+    <div class="wrap">
+      <header class="header">header</header>
+      <div class="slide">slide</div>
+      <div class="main">main</div>
+      <footer class="footer">footer</footer>
+    </div>
+    <style>
+      .wrap {
+        width: 1200px;
+        margin: 100px auto 0;
+        background-color: #ccc;
+        text-align: center;
+      }
+      .header {
+        height: 100px;
+        border-bottom: 5px solid #ddd;
+        padding-top: 30px;
+        padding-left: 100px;
+        box-sizing: border-box;
+        /* box-sizing: border-box;는 height값으로 설정/height값보다 padding+border값이 크면 padding+border값으로 들어감 */
+        /* box-sizing: content-box;는 height+padding+border값으로 설정 */
+        /* padding은 겹쳐짐 */
+      }
+      .slide {
+        height: 300px;
+        border-bottom: 5px solid #ddd;
+        margin: 20px auto;
+        padding-top: 30px;
+        padding-left: 100px;
+        box-sizing: border-box;
+      }
+      .main {
+        height: 200px;
+        border-bottom: 5px solid #ddd;
+        margin: 20px auto;
+        padding-top: 30px;
+        padding-left: 100px;
+        box-sizing: border-box;
+      }
+      .footer {
+        height: 100px;
+        border-bottom: 5px solid #ddd;
+        padding-top: 30px;
+        padding-left: 100px;
+        box-sizing: border-box;
+      }
+    </style>
+    <br /><br /><br />
+  </body>
+</html>
