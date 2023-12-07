@@ -1,0 +1,69 @@
+/* reset */
+/* 웹디자인기능사 시험용 */
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #222328;
+  font-size: 16px;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.header {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: beige;
+}
+
+.header #logo a {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  /* padding: 0 40px; */
+  /* grid 무너지지 않게 해야 하기 때문에 padding값은 넣지 않음 */
+  /* 왼쪽 정렬해줌 */
+}
+
+#gnb .depth1 {
+  display: flex;
+  /* gap: 50px; */
+  /* display:flex;일때만 gap속성 값 사용가능 */
+}
+
+#gnb .depth2 {
+  display: none;
+}
+
+#gnb .depth1 a {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 0 30px;
+}
+
+.slide ul {
+  display: flex;
+}
+
+.slide ul a {
+  display: block;
+  background-color: hotpink;
+}
+/* a태그는 block으로 넣어줘도 안 넣어줘도 상관없지만, 넣는 것을 권장 */
+
+.slide ul img {
+  display: block;
+}
+/* inline은 space를 무조건 먹음(a태그, img태그) */
+/* 따라서 block을 넣어줘야 함 */
