@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display</title>
+  </head>
+  <body>
+    <h1>Display</h1>
+    <h2>block(기본값)&none(안보임)</h2>
+    <!-- width, height 값 설정 가능 -->
+    <div class="block">block</div>
+    <div class="block">block</div>
+    <div class="block none">block</div>
+    <style>
+      .block {
+        width: 100px;
+        height: 50px;
+        background-color: pink;
+        border-radius: 100px;
+        box-sizing: border-box;
+        padding-top: 10px;
+      }
+      /* display:none;은 스크린 리더기(for 시각장애인)가 읽지 않음 */
+      /* 다만 기록은 남음 */
+      .none {
+        display: none;
+      }
+    </style>
+
+    <h2>inline(일반 글씨)</h2>
+    <div class="inline">inline</div>
+    <style>
+      .inline {
+        display: inline;
+        border: 1px solid #000;
+        background-color: cornflowerblue;
+      }
+      .inline::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        /* ::after를 사용할 떈 반드시 content를 넣어줘야 함 */
+        /* ::after는 inline 요소 */
+      }
+    </style>
+    <br />
+
+    <h2>inline-block(가로, 세로 값 가능, 글자처럼 옆으로 배치)</h2>
+    <div class="box1">그림</div>
+    바로가기
+    <style>
+      .box1 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: coral;
+        vertical-align: middle;
+        /* vertical-align: middle; 세로 가운데 정렬 */
+      }
+    </style>
+
+    <h2>**flex(display의 속성 값 중 하나)**</h2>
+  </body>
+</html>
