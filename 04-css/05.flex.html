@@ -244,32 +244,109 @@
       <div>2</div>
       <div>3</div>
     </div>
+
     <h2>Flex Item</h2>
     <div class="flex-container flex21">
-      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
+      <div class="flex-item1">1</div>
+      <div class="flex-item2">2</div>
+      <div class="flex-item3">3</div>
     </div>
+    <style>
+      .flex21 {
+        display: flex;
+      }
+      .flex21 .flex-item1 {
+        order: 2;
+      }
+      .flex21 .flex-item2 {
+        order: 1;
+      }
+      .flex21 .flex-item3 {
+        order: 3;
+      }
+    </style>
+
     <div class="flex-container flex22">
-      <div class="flex-item">1</div>
+      <div class="flex-item item1">1</div>
       <div class="flex-item">2</div>
       <div class="flex-item">3</div>
     </div>
+    <style>
+      .flex22 {
+        display: flex;
+      }
+      .flex22 .flex-item {
+        flex-grow: 1;
+        /* 0(false) = default 확대하지 않음 
+           1(true) = 확대해서 꽉 채움 */
+      }
+      .flex22 .item1 {
+        flex-grow: 0;
+      }
+    </style>
+
     <div class="flex-container flex23">
       <div class="flex-item">1</div>
       <div class="flex-item">2</div>
+      <div class="flex-item item3">3</div>
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
       <div class="flex-item">3</div>
-    </div>
-    <div class="flex-container flex24">
       <div class="flex-item">1</div>
       <div class="flex-item">2</div>
       <div class="flex-item">3</div>
     </div>
+    <style>
+      .flex23 {
+        display: flex;
+      }
+      .flex23 .flex-item {
+        width: 100px;
+        flex-shrink: 0;
+      }
+      /* .flex23 .item3 {
+        flex-shrink: 0;
+      } */
+    </style>
+
+    <div class="flex-container flex24">
+      <div class="flex-item">가</div>
+      <div class="flex-item">가나다</div>
+      <div class="flex-item">가나다라마</div>
+    </div>
+    <style>
+      .flex24 {
+        display: flex;
+      }
+      .flex24 .flex-item {
+        flex-grow: 1;
+        flex-basis: 0;
+        /* flex-basis: 0;은 일정한 값으로 배분 */
+        /* flex-basis: auto;(기본값) */
+      }
+    </style>
+
     <div class="flex-container flex25">
       <div class="flex-item">1</div>
       <div class="flex-item">2</div>
       <div class="flex-item">3</div>
     </div>
+    <style>
+      .flex25 {
+        display: flex;
+      }
+      .flex25 .flex-item {
+        flex-grow: 1;
+      }
+      /* media query */
+      @media screen and (max-width: 800px) {
+        .flex25 {
+          flex-direction: column;
+        }
+      }
+      /* display: flex;는 상속되기 때문에 적지 않음 */
+    </style>
+
     <div class="flex-container flex26">
       <div class="flex-item">1</div>
       <div class="flex-item">2</div>

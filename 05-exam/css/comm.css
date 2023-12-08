@@ -10,22 +10,26 @@
   box-sizing: border-box;
   list-style: none;
 }
-
+/* 필수로 들어가야 하는 reset 내용 */
+/* ctl+p에서 :56을 검색하면 56번째 줄로 이동가능 */
+/* wrap */
 .wrap {
   width: 1200px;
   margin: 0 auto;
   background-color: #fff;
 }
 
-.header {
+/* header */
+#header {
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: beige;
+  /* background-color: beige; */
 }
 
-.header #logo a {
+/* logo */
+#logo a {
   display: flex;
   align-items: center;
   width: 200px;
@@ -35,11 +39,18 @@
   /* 왼쪽 정렬해줌 */
 }
 
+/* gnb */
 #gnb .depth1 {
   display: flex;
+  align-items: center;
   /* gap: 50px; */
   /* display:flex;일때만 gap속성 값 사용가능 */
 }
+
+/* #gnb {
+  margin-right: -30px;
+} */
+/* gnb 그리드를 맞출지 여부는 회사마다 지침이 다름 */
 
 #gnb .depth2 {
   display: none;
@@ -50,15 +61,24 @@
   align-items: center;
   height: 100px;
   padding: 0 30px;
+  /* depth1에서 gap을 주는 대신 a에 패딩 값 넣어줌 */
 }
 
+#gnb .depth1:hover .depth2 {
+  display: block;
+  /* block은 보이게 함/none은 안 보이게 함 */
+  background: #fff;
+}
+/* #gnb .depth1:hover일 때 .depth2에 관한 속성값 */
+
+/* slide */
 .slide ul {
   display: flex;
 }
 
 .slide ul a {
   display: block;
-  background-color: hotpink;
+  /* background-color: hotpink; */
 }
 /* a태그는 block으로 넣어줘도 안 넣어줘도 상관없지만, 넣는 것을 권장 */
 
@@ -67,3 +87,109 @@
 }
 /* inline은 space를 무조건 먹음(a태그, img태그) */
 /* 따라서 block을 넣어줘야 함 */
+
+/* main */
+#main {
+  height: 200px;
+  /* background-color: paleturquoise; */
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* g */
+.sec-g {
+  /* width: 33.333%; */
+  flex-grow: 1;
+  /* 1: true(참)/0: false(거짓) */
+  flex-basis: 0;
+  padding: 10px 0;
+}
+.sec-g .sec-tit {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* bbs */
+.sec-bbs .list-bbs li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+/* ::before 와 a의 부모요소를 block으로 할 경우, 부모요소 li에 flex 적용 */
+
+.sec-bbs .list-bbs a {
+  display: block;
+  /* display: inline-block; */
+  /* padding: 5px 0; */
+}
+
+.sec-bbs .list-bbs li::before {
+  content: "";
+  display: block;
+  /* display: inline-block; */
+  vertical-align: middle;
+  width: 2px;
+  height: 2px;
+  /* background-color: #000; */
+}
+
+.sec-bnr {
+  /* padding: 0; */
+}
+
+.sec-bnr .sec-tit,
+.sec-goto .sec-tit {
+  margin-bottom: 0;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 0;
+  /* display: none;은 웹접근성에 어긋남 */
+}
+
+/* goto */
+.sec-goto .list-goto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 100%;
+  /* gap: 10px; */
+}
+.sec-goto .list-goto li {
+  width: 49.3%;
+  height: 49%;
+  background-color: peru;
+  /* border: 1px solid #ccc; */
+}
+.list-goto li a {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  /* 위 방법과 같이 display:flex;로 하거나
+  아래 방법과 같이 display:block으로 설정 가능 */
+
+  /* display: block; */
+  /* height: 100%; */
+  /* text-align: center; */
+  /* line-height: 85px; */
+  /* 높이 값만큼 행간을 넣어주면 가운데 정렬 가능 */
+
+  /* width: 100%;는 default 값이므로 굳이 써주지 않음*/
+}
+
+/* footer */
+#footer {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  border-top: 1px solid #eee;
+  /* background-color: palevioletred; */
+}
+#footer .logo,
+.copyright,
+.sns {
+  /* flex-grow: 1; */
+}
