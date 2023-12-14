@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float</title>
+  </head>
+  <body>
+    <h1>float</h1>
+    <h2>float:left</h2>
+    <div class="box1">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+    </div>
+    <div class="box2">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum,
+      officiis.
+    </div>
+    <style>
+      .box1 .item {
+        float: left;
+        /* float: right;으로 설정하면 순서가 바뀜 */
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+      .box2 {
+        clear: both;
+        background-color: peru;
+        border: 1px solid #000;
+      }
+    </style>
+    <br /><br /><br />
+    <h2>float layout</h2>
+    <div class="wrap">
+      <div id="header">
+        <div id="logo">
+          <h1>logo</h1>
+        </div>
+        <nav id="gnb">
+          <ul class="depth1">
+            <li>탑</li>
+            <li>아우터</li>
+            <li>팬츠</li>
+            <li>악세서리</li>
+          </ul>
+        </nav>
+      </div>
+      <div class="slide">
+        <ul>
+          <li>slide1</li>
+          <li>slide2</li>
+          <li>slide3</li>
+        </ul>
+      </div>
+      <div id="main">
+        <section class="sec-g bbs">공지사항</section>
+        <section class="sec-g bnr">배너</section>
+        <section class="sec-g goto">바로가기</section>
+      </div>
+      <div id="footer">
+        <div class="ft-logo">
+          <h2>logo</h2>
+        </div>
+        <div class="copyright">copyright@</div>
+        <div class="sns">sns</div>
+      </div>
+    </div>
+
+    <style>
+      .wrap {
+        width: 1280px;
+        margin: 0 auto;
+        background-color: plum;
+      }
+      #header {
+        /* height: 100px; */
+        /* 부모요소에게 값을 지정해주지 않으면 자녀는 float때문에 붕 떠버리기 때문에 부모가 자녀의 높이값을 인식하지 못함 */
+        /* 즉 부모요소의 높이가 0이 되기 때문에 밑에 있는 내용들이 옆으로 따라 붙음/내용이 없다고 판단하여 */
+        /* 1. 부모에게 높이값 지정
+           2. 부모에게 overflow: auto;지정
+           3. 부모에게 ::after 공간을 만들어줌(content, display, clear:both)
+           ::after는 inline 요소*/
+        overflow: auto;
+        background-color: #ddd;
+      }
+      #logo h1 {
+        float: left;
+        /* float는 자식요소에 적용 */
+        background-color: beige;
+      }
+      #gnb {
+        float: right;
+        background-color: burlywood;
+      }
+      #gnb li {
+        float: left;
+      }
+      .slide ul {
+        overflow: auto;
+        /* overflow: auto;는 부모요소에 넣어줘야 함 */
+      }
+      .slide li {
+        float: left;
+      }
+      #main::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      #main .sec-g {
+        float: left;
+        width: 30%;
+        height: 500px;
+        background: #ddd;
+        border: 1px solid #000;
+        box-sizing: border-box;
+      }
+      #main .sec-g + .sec-g {
+        margin-left: 5%;
+      }
+      #footer {
+        background-color: beige;
+      }
+      #footer::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      /* #footer {
+        overflow: auto;
+      } */
+      /* #footer .ft-logo,
+      .copyright,
+      .sns {
+        float: left;
+        width: 30%;
+        box-sizing: border-box;
+        border: 1px solid #000;
+        text-align: center;
+      } */
+      /* #footer .ft-logo + .copyright {
+        margin-left: 5%;
+      }
+      .copyright + .sns {
+        margin-left: 5%;
+      } */
+      .ft-logo {
+        float: left;
+        margin-top: -20px;
+      }
+      .sns {
+        float: right;
+        margin-top: -20px;
+      }
+      .copyright {
+        margin-right: 65px;
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
