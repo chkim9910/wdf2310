@@ -42,7 +42,6 @@
 /* gnb */
 #gnb .depth1 {
   display: flex;
-  align-items: center;
   /* gap: 50px; */
   /* display:flex;일때만 gap속성 값 사용가능 */
 }
@@ -52,27 +51,67 @@
 } */
 /* gnb 그리드를 맞출지 여부는 회사마다 지침이 다름 */
 
-#gnb .depth2 {
-  display: none;
+/* #gnb .depth1:hover .depth2 {
+  display: block;
+  background: #fff;*/
+/* block은 보이게 함/none은 안 보이게 함 */
+/* #gnb .depth1:hover일 때 .depth2에 관한 속성값 */
+/* 전체 메뉴 보이게 함 */
+
+#gnb .depth1 li:hover .depth2 {
+  display: block;
+  background-color: #fff;
+}
+/* #gnb .depth1 li:hover일 때 .depth2에 관한 속성값 */
+/* 개별 메뉴만 보이게 함 */
+
+#gnb .depth1 > li {
+  position: relative;
+  width: 100px;
 }
 
-#gnb .depth1 a {
+#gnb .depth1 > li > a {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100px;
-  padding: 0 30px;
+  /* padding: 0 30px; */
   /* depth1에서 gap을 주는 대신 a에 패딩 값 넣어줌 */
 }
 
-#gnb .depth1:hover .depth2 {
-  display: block;
-  /* block은 보이게 함/none은 안 보이게 함 */
-  background: #fff;
+#gnb .depth2 {
+  /* display: none; */
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  /* width:100%;로 해서 꽉 채울 수도 있음 */
+  z-index: 1000;
+  background-color: palevioletred;
+  text-align: center;
+  padding: 50px 0;
 }
-/* #gnb .depth1:hover일 때 .depth2에 관한 속성값 */
+
+#gnb .depth2 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0px;
+}
 
 /* slide */
+.slide {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
 .slide ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* .slide에 position을 주면 header에 바로 main이 붙어버리기 때문에 ul을 띄워주는 것/
+   부모는 자녀(자녀가 떠버리면(absolute))를 인식하지 못하기 때문에 부모에게 높이값을 넣어줘야 함
+    */
   display: flex;
 }
 
