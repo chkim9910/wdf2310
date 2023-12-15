@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JUST쇼핑몰</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/comm.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="./js/comm.js"></script>
+    <!-- defer: html을 다 읽고 나서 실행해달라는 의미 -->
+    <!-- html먼저 읽고 js를 읽어야 되기 때문에 제일 밑에 넣어줘야 동작이 되지만
+         defer 명령어를 써서 앞에다 넣을 수 있음 -->
   </head>
   <body>
     <!-- header, main, footer, logo에는 아이디값을 넣어줌 -->
@@ -57,7 +66,34 @@
       </header>
       <!-- /header -->
       <!-- slide -->
-      <div class="slide">
+      <!-- Slider main container -->
+      <div class="swiper slide-intro">
+        <!-- 개별 class이름을 붙여줘야 함 -->
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 3</div>
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+      </div>
+      <!-- <div class="slide">
         <ul>
           <li>
             <a href="#"><img src="./images/slide1.png" alt="이미지 설명" /></a>
@@ -69,7 +105,7 @@
             <a href="#"><img src="./images/slide3.jpg" alt="이미지 설명" /></a>
           </li>
         </ul>
-      </div>
+      </div> -->
       <!-- /slide -->
       <!-- main -->
       <main id="main">

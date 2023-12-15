@@ -42,6 +42,7 @@
 /* gnb */
 #gnb .depth1 {
   display: flex;
+  width: 500px;
   /* gap: 50px; */
   /* display:flex;일때만 gap속성 값 사용가능 */
 }
@@ -60,14 +61,15 @@
 
 #gnb .depth1 li:hover .depth2 {
   display: block;
-  background-color: #fff;
+  background-color: #ccc;
 }
 /* #gnb .depth1 li:hover일 때 .depth2에 관한 속성값 */
 /* 개별 메뉴만 보이게 함 */
 
 #gnb .depth1 > li {
   position: relative;
-  width: 100px;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 #gnb .depth1 > li > a {
@@ -75,12 +77,12 @@
   align-items: center;
   justify-content: center;
   height: 100px;
-  /* padding: 0 30px; */
+  /* padding: 0 10px; */
   /* depth1에서 gap을 주는 대신 a에 패딩 값 넣어줌 */
 }
 
 #gnb .depth2 {
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 100px;
   left: 0;
@@ -89,7 +91,7 @@
   z-index: 1000;
   background-color: palevioletred;
   text-align: center;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 #gnb .depth2 a {
@@ -100,6 +102,10 @@
 }
 
 /* slide */
+.swiper {
+  height: 300px;
+}
+
 .slide {
   position: relative;
   height: 300px;
