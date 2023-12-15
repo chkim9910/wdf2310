@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position</title>
+    <style>
+      .container {
+        position: relative;
+        background: lightblue;
+        /* height: 200vh; */
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>position</h1>
+    <div class="container relative">
+      <div class="inner">
+        <div class="box static">static</div>
+        <!-- relative의 기준은 나 자신 -->
+        <!-- 기준을 절대값으로 사용하면 안됨 ex)top:70px; -->
+        <div class="box rel1">relative1</div>
+        <div class="box rel2">relative2</div>
+        <div class="box rel3">relative3</div>
+        <!-- abosolute의 기준은 나와 가장 가까운 부모 -->
+        <!-- absolute는 절대값으로 위치 지정 -->
+        <div class="box abs1">absolute1</div>
+        <div class="abs-box">
+          <!--  -->
+          <div class="box abs2">absolute2</div>
+          <div class="box abs3">absolute3</div>
+        </div>
+      </div>
+      <style>
+        .inner {
+          position: relative;
+        }
+        .static {
+          position: static;
+        }
+        .rel1,
+        .rel2,
+        .rel3 {
+          position: relative;
+        }
+        .rel2 {
+          right: 0;
+          top: 400px;
+        }
+        .abs1 {
+          position: absolute;
+          height: 200px;
+          z-index: 1;
+          top: 100px;
+          right: 0;
+        }
+        .abs-box {
+          position: absolute;
+          right: 0;
+          bottom: 50px;
+          width: 500px;
+          height: 500px;
+          background-color: palevioletred;
+        }
+        .abs-box .abs2 {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+        .abs-box .abs3 {
+          position: absolute;
+          top: 150px;
+          left: -100px;
+        }
+      </style>
+
+      <div class="fixed">fixed</div>
+      <!-- fixed의 기준은 body -->
+      <style>
+        .fixed {
+          /* position: fixed; */
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          /* z-index 값이 높아질수록 위로 이동 */
+          /* header는 무조건 위로 와야 되므로 z-index를 1,000 or 10,000정도로 잡음 */
+          /* right: 0;
+             bottom: 0; */
+          /* modal창 띄우거나 mobile에서 nav 창 띄울 때 right:0; bottom:0;을 넣어 꽉 채움 */
+          width: 100%;
+          height: 150px;
+          background-color: peru;
+        }
+      </style>
+      <div class="rel">
+        <div class="sticky sticky1">sticky</div>
+      </div>
+      <div class="rel">
+        <div class="sticky sticky1">sticky</div>
+      </div>
+      <div class="rel">
+        <div class="sticky sticky1">sticky</div>
+      </div>
+    </div>
+
+    <style>
+      .rel {
+        position: relative;
+        height: 100vh;
+        background: lightsalmon;
+        border: 5px solid yellow;
+      }
+      .sticky {
+        position: sticky;
+        top: 0;
+        left: 0;
+        /* position:sticky;를 쓸 때는 고정해주고 싶은 위치값을 함께 넣어줘야 함 */
+        /* left:0;은 없어도 괜찮음 */
+        width: 200px;
+        height: 200px;
+        background: blue;
+      }
+    </style>
+    <br /><br /><br />
+    <h2>가운데 정렬</h2>
+    <div class="center">
+      <div class="item">가운데 정렬</div>
+    </div>
+    <style>
+      .center {
+        position: relative;
+        height: 500px;
+        margin-bottom: 500px;
+        background-color: rgb(112, 169, 216);
+      }
+      .center .item {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        /* margin-top: -100px;
+        margin-left: -100px; */
+        /* margin: -100px 0 0 -100px; */
+        /* 1. margin으로 위와 왼쪽으로 당겨주기/자기 자신의 반절만큼 이동할 수 있도록*/
+        transform: translate(-50%, -50%);
+        /* 2. transform:translate(x,y);으로 이동해주기 */
+        /* transform:translate 해줄 때는 % 사용가능 > 나를 기준으로 하기 때문
+           but, margin에서는 %를 사용할 수 없음 > 부모를 기준으로 하기 때문 */
+        background-color: beige;
+        text-align: center;
+        line-height: 200px;
+        /* 세로 가운데 정렬할 떄는 높이 값만큼 line-height를 넣어주면 됨 */
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>

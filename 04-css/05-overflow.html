@@ -16,12 +16,37 @@
       .box1 {
         display: flex;
         width: 100px;
-        overflow: hidden;
+        overflow-x: auto;
+        /* scroll로 하면 안 보여도 될 때도 보이게 함 */
+        /* 필요없을 때는 안 보이도록 하는 것이 좋으니, auto로 설정하는 것을 권장 */
       }
       .item {
         flex-shrink: 0;
         width: 100px;
         background-color: aquamarine;
+      }
+    </style>
+
+    <h2>이용약관</h2>
+    <div class="container">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque eos
+      exercitationem natus nisi cupiditate autem odio cumque, necessitatibus
+      porro aut quasi sunt voluptas, possimus fugit adipisci mollitia fuga
+      distinctio hic! Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      Quibusdam temporibus possimus ut dolorum corporis architecto, ab sint sed
+      enim quod neque culpa libero, ducimus veniam eveniet ex ipsum cum et?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ab,
+      ducimus nobis magni explicabo cumque dolores fugiat nihil ad doloremque
+      rerum animi blanditiis quod, numquam delectus sunt! Exercitationem,
+      accusantium eum.
+    </div>
+    <style>
+      .container {
+        overflow: auto;
+        max-width: 600px;
+        height: 100px;
+        margin: 0 auto 500px;
+        border: 5px solid #555;
       }
     </style>
   </body>
