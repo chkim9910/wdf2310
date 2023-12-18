@@ -434,4 +434,9 @@
 -mq > 모바일에서 웹
 -mq예제 > 웹에서 모바일*/
 
-@media screen and ();
+body {
+  background: url(../) no-repeat 50% 0;
+}
+.wrap {
+  opacity: 0.7;
+}
