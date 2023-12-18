@@ -4,8 +4,8 @@ const swiper = new Swiper(".slide-intro", {
   // Optional parameters
   //   direction: "vertical",
   loop: true,
-  slidesPerView: 3,
-  spaceBetween: 30,
+  // slidesPerView: 3,
+  // spaceBetween: 30,
 
   // If we need pagination
   pagination: {
