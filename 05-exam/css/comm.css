@@ -1,3 +1,19 @@
+/* 전역 변수 설정 */
+:root {
+  --default: #222328;
+  --primary: #ffaabb;
+  --secondary: #66ccdd;
+  --white: #fff;
+  --black: #000;
+
+  --widthWrap: 1200px;
+  --minHeight: cal(100vh - var(--hdHeight) - var(--ftHeight) - var(--slideHeight));
+  --hdHeight: 100px;
+  --ftHeight: 100px;
+  --slideHeight: 300px;
+  /* --minHeight: 100vh; */
+}
+
 /* reset */
 /* 웹디자인기능사 시험용 */
 * {
@@ -5,7 +21,7 @@
   padding: 0;
   line-height: 1.5;
   text-decoration: none;
-  color: #222328;
+  color: var(--default)
   font-size: 16px;
   box-sizing: border-box;
   list-style: none;
@@ -24,10 +40,10 @@
 
 /* wrap */
 .wrap {
-  max-width: 1200px;
+  max-width: var(--widthWrap);
   /* max-width로 해야 같이 줄어들고 늘어남 */
   margin: 0 auto;
-  background-color: #fff;
+  background-color: var(--white);
 }
 /* tablet */
 @media screen and (max-width: 980px) {
@@ -44,7 +60,7 @@
 
 /* header */
 #header {
-  height: 100px;
+  height: var(--hdHeight);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,7 +94,7 @@
 
 /* #gnb .depth1:hover .depth2 {
   display: block;
-  background: #fff;*/
+  background: var(--white);*/
 /* block은 보이게 함/none은 안 보이게 함 */
 /* #gnb .depth1:hover일 때 .depth2에 관한 속성값 */
 /* 전체 메뉴 보이게 함 */
@@ -158,7 +174,7 @@
 
 /* slide */
 .swiper {
-  height: 300px;
+  height: var(--slideHeight);
 }
 
 .slide {
@@ -190,7 +206,7 @@
 
 /* main */
 #main {
-  height: 200px;
+  min-height: var(--minHeight);
   /* background-color: paleturquoise; */
   display: flex;
   justify-content: space-between;
@@ -231,7 +247,7 @@
   vertical-align: middle;
   width: 2px;
   height: 2px;
-  /* background-color: #000; */
+  /* background-color: var(--black); */
 }
 
 .sec-bnr {
@@ -320,7 +336,7 @@
 #footer {
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: var(--ftHeight);
   align-items: center;
   border-top: 1px solid #eee;
   /* background-color: palevioletred; */
@@ -374,7 +390,7 @@
   transform:translate(x,y)를 사용 */
   width: 500px;
   height: 300px;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 20px;
   border: 1px solid #ccc;
   padding: 50px;
@@ -399,17 +415,17 @@
   right: -20px;
   width: 40px;
   height: 40px;
-  background-color: #000;
+  background-color: var(--black);
   border-radius: 40px;
   /* border-radius:50%로 해도 원이 됨 */
   border: none;
-  color: #fff;
+  color: var(--white);
 
   /* ti--로 입력하면 text-indent:-9999px 자동입력 */
 }
 
 /* .btn-close i {
-  color: #fff;
+  color: var(--white);
   font-size: 20px;
   text-align: center;
 } */
@@ -430,13 +446,23 @@
 /* 따라서 모바일에서 웹으로 작업하는 경우가 많음 */
 /* min과 max를 혼용하지 않도록 */
 
+/*----------------------모바일 -> 웹----------------------*/
+/* body 잡을 때 width:100%;로 설정 */
+/* @media screen and (min-width)로 사이즈 조절 > 픽셀이 아닌 %로 값 설정해야 안 깨짐 */
+
+/* ----------------------웹 -> 모바일---------------------- */
+/* body 잡을 때 max-width(픽셀값);,
+   margin:0 auto; 설정*/
+/* @media screen and (max-width)로 사이즈 조절 > 픽셀로 설정 */
+
 /* w3 사이트
 -mq > 모바일에서 웹
 -mq예제 > 웹에서 모바일*/
 
-body {
+/* ----------------------배경에 사진 넣고 작업할 때 설정 값---------------------- */
+/* body {
   background: url(../) no-repeat 50% 0;
 }
 .wrap {
   opacity: 0.7;
-}
+} */
