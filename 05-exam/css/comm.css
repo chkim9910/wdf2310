@@ -111,6 +111,10 @@
   /* padding: 0 10px; */
   /* depth1에서 gap을 주는 대신 a에 패딩 값 넣어줌 */
 }
+#gnb .depth1 > li > a:hover {
+  background: #19414e;
+  color: #fff;
+}
 
 #gnb .depth1 li:hover .depth2 {
   max-height: 250px;
@@ -156,6 +160,9 @@
   justify-content: center;
   padding: 5px 0px;
 }
+#gnb .depth2 a:hover {
+  color: blue;
+}
 
 /* section별로 media query 작업해야 함(순서대로) */
 /* 검사창에서 미리 구상해보기 */
@@ -171,10 +178,14 @@
     padding: 20px 0 10px;
     height: auto;
   }
-
+  #gnb .depth1 > li > a:hover {
+    background: #222;
+    color: #fff;
+  }
   #gnb .depth1 > li > a {
     height: 50px;
   }
+
   #gnb .depth2 {
     top: 50px;
   }
@@ -194,9 +205,12 @@
 
 .slide {
   position: relative;
+  top: 0;
+  left: 0;
   height: 300px;
   overflow: hidden;
 }
+
 .slide ul {
   position: absolute;
   top: 0;
@@ -205,14 +219,39 @@
    부모는 자녀(자녀가 떠버리면(absolute))를 인식하지 못하기 때문에 부모에게 높이값을 넣어줘야 함
     */
   display: flex;
+  animation: ani-slide 10s linear infinite;
+}
+/* 슬라이드 효과 스와이퍼 없이 css로 주기 */
+@keyframes ani-slide {
+  0% {
+    left: 0;
+  }
+  30% {
+    left: 0;
+  }
+  32% {
+    left: -100%;
+  }
+  62% {
+    left: -100%;
+  }
+  64% {
+    left: -200%;
+  }
+  98% {
+    left: -200%;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 .slide ul a {
   display: block;
+  /* animation: ani-slide 3s linear 0s infinite reverse forwards; */
   /* background-color: hotpink; */
 }
 /* a태그는 block으로 넣어줘도 안 넣어줘도 상관없지만, 넣는 것을 권장 */
-
 .slide ul img {
   display: block;
 }

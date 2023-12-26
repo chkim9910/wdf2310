@@ -73,12 +73,12 @@
       <!-- /header -->
       <!-- slide -->
       <!-- Slider main container -->
-      <div class="swiper slide-intro">
-        <!-- 개별 class이름을 붙여줘야 함 -->
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <div class="swiper-slide">
+      <!-- <div class="swiper slide-intro"> -->
+      <!-- 개별 class이름을 붙여줘야 함 -->
+      <!-- Additional required wrapper -->
+      <!-- <div class="swiper-wrapper"> -->
+      <!-- Slides -->
+      <!-- <div class="swiper-slide">
             <img src="./images/slide1.png" alt="이미지 설명" />
           </div>
           <div class="swiper-slide">
@@ -87,30 +87,34 @@
           <div class="swiper-slide">
             <img src="./images/slide3.jpg" alt="이미지 설명" />
           </div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-
-        <!-- If we need scrollbar -->
-        <!-- <div class="swiper-scrollbar"></div> -->
-      </div>
-      <!-- <div class="slide">
-        <ul>
+        </div> -->
+      <!-- If we need pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+      <!-- If we need navigation buttons -->
+      <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+      <!-- If we need scrollbar -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+      <!-- </div> -->
+      <div class="slide">
+        <ul class="list-slide">
           <li>
-            <a href="#"><img src="./images/slide1.png" alt="이미지 설명" /></a>
+            <a href="#" class="img-1"
+              ><img src="./images/slide1.png" alt="이미지 설명"
+            /></a>
           </li>
           <li>
-            <a href="#"><img src="./images/slide2.png" alt="이미지 설명" /></a>
+            <a href="#" class="img-2"
+              ><img src="./images/slide2.png" alt="이미지 설명"
+            /></a>
           </li>
           <li>
-            <a href="#"><img src="./images/slide3.jpg" alt="이미지 설명" /></a>
+            <a href="#" class="img-3"
+              ><img src="./images/slide3.jpg" alt="이미지 설명"
+            /></a>
           </li>
         </ul>
-      </div> -->
+      </div>
       <!-- /slide -->
       <!-- main -->
       <main id="main">
@@ -165,25 +169,26 @@
         </div>
       </footer>
       <!-- /footer -->
-    </div>
-    <!-- 모달창 작업 -->
-    <!-- dimmed 처리 : 뒷 배경을 어둡게 만드는 작업 -->
-    <!-- 모든 모달창은 wrap 아래에 코드 짜줌 -->
-    <div class="dimmed">
-      <div class="modal">
-        <header class="modal-hd">Lorem, ipsum</header>
+      <!-- </div> -->
+      <!-- 모달창 작업 -->
+      <!-- dimmed 처리 : 뒷 배경을 어둡게 만드는 작업 -->
+      <!-- 모든 모달창은 wrap 아래에 코드 짜줌 -->
+      <div class="dimmed">
+        <div class="modal">
+          <header class="modal-hd">Lorem, ipsum</header>
 
-        <main class="modal-bd">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum minus
-          laboriosam provident, perspiciatis id tempora voluptate, amet vitae
-          distinctio placeat nisi esse nesciunt recusandae atque ratione.
-        </main>
+          <main class="modal-bd">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum minus
+            laboriosam provident, perspiciatis id tempora voluptate, amet vitae
+            distinctio placeat nisi esse nesciunt recusandae atque ratione.
+          </main>
 
-        <!-- modal-bd: modal body -->
-        <button class="btn-close">
-          <!-- <i class="las la-times"></i> -->
-          <span class="blind">모달창 닫기</span>
-        </button>
+          <!-- modal-bd: modal body -->
+          <button class="btn-close">
+            <!-- <i class="las la-times"></i> -->
+            <span class="blind">모달창 닫기</span>
+          </button>
+        </div>
       </div>
     </div>
   </body>
