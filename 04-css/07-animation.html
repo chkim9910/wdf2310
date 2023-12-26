@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation | css</title>
+  </head>
+  <body>
+    <h1>Animation</h1>
+    <div class="box1">
+      <div class="ani"></div>
+    </div>
+    <style>
+      .box1 {
+        position: relative;
+        height: 500px;
+        background: lightgray;
+      }
+      .ani {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        /* background: red; */
+        animation-name: ani-box;
+        animation-duration: 5s;
+        animation-delay: 1s;
+        /*  animation-delay 음수값도 가능 */
+        /* animation-iteration-count: infinite; */
+        /* animation-direction: alternate; */
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+      }
+      @keyframes ani-box {
+        0% {
+          background: red;
+          top: 0;
+          left: 0;
+          transform: translate(0, 0);
+        }
+        25% {
+          background: yellow;
+          top: 0;
+          left: calc(100% - 200px);
+          transform: translate(0, 0);
+        }
+        50% {
+          background: green;
+          top: calc(100% - 200px);
+          left: calc(100% - 200px);
+          transform: translate(0, 0);
+        }
+        75% {
+          background: blue;
+          top: calc(100% - 200px);
+          left: 0;
+          transform: translate(0, 0);
+        }
+        100% {
+          background: purple;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    </style>
+
+    <div class="box2">
+      <div class="square"></div>
+      <div class="circle"></div>
+    </div>
+    <style>
+      .box2 {
+        position: relative;
+        height: 100vh;
+        margin: 400px 0 200px;
+        background: lightgray;
+      }
+      .square {
+        position: absolute;
+        /* bottom: 0;
+        right: -200px; */
+        width: 200px;
+        height: 300px;
+
+        animation: square 2s ease-in-out 3s forwards;
+      }
+      @keyframes square {
+        0% {
+          opacity: 0;
+          bottom: 0;
+          right: -200px;
+          background: tomato;
+        }
+        100% {
+          opacity: 1;
+          bottom: 50%;
+          right: 50%;
+          background: tomato;
+        }
+      }
+      .circle {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: blue;
+        border-radius: 50%;
+        animation: circle 2s ease-in-out 1s both;
+      }
+      @keyframes circle {
+        0% {
+          opacity: 0;
+          top: 0;
+          left: -200px;
+          transform: translate(0, 0);
+        }
+        100% {
+          opacity: 1;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    </style>
+  </body>
+</html>
