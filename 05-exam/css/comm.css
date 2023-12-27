@@ -395,6 +395,9 @@
   border-top: 1px solid #eee;
   /* background-color: palevioletred; */
 }
+#footer .logo img {
+  filter: grayscale(100%);
+}
 #footer .logo,
 .copyright,
 .sns {
