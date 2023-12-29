@@ -1,0 +1,572 @@
+/* 전역 변수 설정 */
+:root {
+  --default: #222328;
+  --primary: #ffaabb;
+  --secondary: #66ccdd;
+  --white: #fff;
+  --black: #000;
+  --swiper-theme-color: #fff;
+
+  --widthWrap: 1200px;
+  --minHeight: cal(
+    100vh - var(--hdHeight) - var(--ftHeight) - var(--slideHeight)
+  );
+  --hdHeight: 100px;
+  --ftHeight: 100px;
+  --slideHeight: 300px;
+  /* --minHeight: 100vh; */
+}
+
+/* reset */
+/* 웹디자인기능사 시험용 */
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  text-decoration: none;
+  color: var(--default);
+  font-size: 16px;
+  box-sizing: border-box;
+  list-style: none;
+}
+/* 필수로 들어가야 하는 reset 내용 */
+/* ctl+p에서 :56을 검색하면 56번째 줄로 이동가능 */
+/* alt+z : px to rem/ rem to px */
+
+/* common */
+/* 시각장애인에겐 들리고 일반인에겐 보이지 않는 텍스트 */
+.blind {
+  position: absolute;
+  text-indent: -9999px;
+  font-size: 0;
+  line-height: 0;
+}
+
+/* wrap */
+.wrap {
+  max-width: var(--widthWrap);
+  /* max-width로 해야 같이 줄어들고 늘어남 */
+  margin: 0 auto;
+  background-color: var(--white);
+}
+/* tablet */
+@media screen and (max-width: 980px) {
+  .wrap {
+    padding: 0 30px;
+  }
+}
+/* mobile */
+@media screen and (max-width: 430px) {
+  .wrap {
+    padding: 0 20px;
+  }
+}
+
+/* header */
+#header {
+  height: var(--hdHeight);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: beige; */
+}
+
+/* logo */
+#logo a {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  font-size: 1.25rem;
+  /* padding: 0 40px; */
+  /* grid 무너지지 않게 해야 하기 때문에 padding값은 넣지 않음 */
+  /* 왼쪽 정렬해줌 */
+}
+
+/* gnb */
+#gnb .depth1 {
+  display: flex;
+  width: 500px;
+  /* gap: 50px; */
+  /* display:flex;일때만 gap속성 값 사용가능 */
+}
+
+/* #gnb {
+  margin-right: -30px;
+} */
+/* gnb 그리드를 맞출지 여부는 회사마다 지침이 다름 */
+
+#gnb .depth1 > li {
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+#gnb .depth1 > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  white-space: nowrap;
+  /* padding: 0 10px; */
+  /* depth1에서 gap을 주는 대신 a에 패딩 값 넣어줌 */
+}
+
+#gnb .depth2 {
+  display: none;
+  overflow: hidden;
+  /* max-height: 0; */
+  padding: 0;
+  /* opacity: 0;
+  visibility: hidden; */
+  /* display: none; */
+  /* transition: all 0.3s; */
+  /* display: none, block;에서는 transition 적용 안 됨 */
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  /* width:100%;로 해서 꽉 채울 수도 있음 */
+  z-index: 1000;
+  /* background-color: palevioletred; */
+  text-align: center;
+}
+
+#gnb .depth2 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0px;
+}
+#gnb .depth2 a:hover {
+  color: blue;
+}
+
+/* section별로 media query 작업해야 함(순서대로) */
+/* 검사창에서 미리 구상해보기 */
+/* 기존에 썼던 코드를 그대로 복붙해주어야 오류가 안 생김 */
+/* tablet */
+@media screen and (max-width: 980px) {
+  #header {
+    height: auto;
+    flex-direction: column;
+  }
+  #logo a {
+    justify-content: center;
+    padding: 20px 0 10px;
+    height: auto;
+  }
+  #gnb .depth1 > li > a:hover {
+    background: #222;
+    color: #fff;
+  }
+  #gnb .depth1 > li > a {
+    height: 50px;
+  }
+
+  #gnb .depth2 {
+    top: 50px;
+  }
+}
+/* mobile */
+@media screen and (max-width: 430px) {
+  #gnb {
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
+/* slide */
+.swiper {
+  height: var(--slideHeight);
+}
+
+.slide {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slide ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* .slide에 position을 주면 header에 바로 main이 붙어버리기 때문에 ul을 띄워주는 것/
+   부모는 자녀(자녀가 떠버리면(absolute))를 인식하지 못하기 때문에 부모에게 높이값을 넣어줘야 함
+    */
+  display: flex;
+  animation: ani-slide 10s linear infinite;
+}
+/* 슬라이드 효과 스와이퍼 없이 css로 주기 */
+@keyframes ani-slide {
+  0% {
+    left: 0;
+  }
+  30% {
+    left: 0;
+  }
+  32% {
+    left: -100%;
+  }
+  62% {
+    left: -100%;
+  }
+  64% {
+    left: -200%;
+  }
+  98% {
+    left: -200%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.slide ul a {
+  display: block;
+  /* animation: ani-slide 3s linear 0s infinite reverse forwards; */
+  /* background-color: hotpink; */
+}
+/* a태그는 block으로 넣어줘도 안 넣어줘도 상관없지만, 넣는 것을 권장 */
+.slide ul img {
+  display: block;
+}
+/* inline은 space를 무조건 먹음(a태그, img태그) */
+/* 따라서 block을 넣어줘야 함 */
+
+/* main */
+#main {
+  min-height: var(--minHeight);
+  /* background-color: paleturquoise; */
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* g */
+.tabs,
+.sec-bnt,
+.sec-goto {
+  /* width: 33.333%; */
+  flex-grow: 1;
+  /* 1: true(참)/0: false(거짓) */
+  flex-basis: 0;
+  padding: 10px 0;
+}
+
+.sec-g .sec-tit {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+/* tabs */
+.tabs {
+  display: flex;
+  position: relative;
+}
+.tabs .sec-g {
+  width: 50%;
+}
+.tabs .list-bbs,
+.tabs .list-gallery {
+  width: 100%;
+}
+/* active */
+.tabs .sec-tit {
+  background-color: #ccc;
+  transition: background-color, 0.3s;
+}
+.tabs .active .sec-tit {
+  background-color: #19414e;
+  color: #fff;
+}
+.tabs .list-g {
+  display: none;
+  transition: display, 0.3s;
+}
+.tabs .active .list-g {
+  display: block;
+  /* display: flex; */
+}
+.tabs .active .list-gallery {
+  display: flex;
+}
+
+.tabs .sec-tit {
+  height: auto;
+  padding: 5px 0;
+  /* border: 0.5px solid rgb(0, 0, 0); */
+  /* background-color: #ccc; */
+  text-align: center;
+}
+/* bbs */
+.list-bbs,
+.list-gallery {
+  width: 100%;
+  position: absolute;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
+  /* z-index: -1; */
+}
+.sec-bbs .list-bbs li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+/* ::before 와 a의 부모요소를 block으로 할 경우, 부모요소 li에 flex 적용 */
+
+.sec-bbs .list-bbs a {
+  display: block;
+  /* display: inline-block; */
+  /* padding: 5px 0; */
+}
+
+.sec-bbs .list-bbs li::before {
+  content: "";
+  display: block;
+  /* display: inline-block; */
+  vertical-align: middle;
+  width: 2px;
+  height: 2px;
+  /* background-color: var(--black); */
+}
+
+/* gallery */
+
+.list-gallery {
+  /* display: none; */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; */
+}
+
+/* bnr */
+.sec-bnr {
+  /* padding: 0; */
+}
+
+.sec-bnr .sec-tit,
+.sec-goto .sec-tit {
+  margin-bottom: 0;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 0;
+  /* display: none;은 웹접근성에 어긋남 */
+}
+
+/* goto */
+.sec-goto .list-goto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 100%;
+  /* gap: 10px; */
+}
+.sec-goto .list-goto li {
+  width: 49.3%;
+  height: 49%;
+  background-color: peru;
+  /* border: 1px solid #ccc; */
+}
+.list-goto li a {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  /* 위 방법과 같이 display:flex;로 하거나
+  아래 방법과 같이 display:block으로 설정 가능 */
+
+  /* display: block; */
+  /* height: 100%; */
+  /* text-align: center; */
+  /* line-height: 85px; */
+  /* 높이 값만큼 행간을 넣어주면 가운데 정렬 가능 */
+
+  /* width: 100%;는 default 값이므로 굳이 써주지 않음*/
+}
+
+/* tablet */
+@media screen and (max-width: 980px) {
+  #main {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 0;
+    /* justify-content: space-between; */
+  }
+  .sec-g {
+    flex-basis: auto;
+    flex-grow: 0;
+  }
+  .sec-bbs {
+    width: 100%;
+  }
+  .sec-bnr,
+  .sec-goto {
+    width: calc(100% / 2 - 10px);
+  }
+  .sec-bnr img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 430px) {
+  .sec-bnr,
+  .sec-goto {
+    width: 100%;
+  }
+  .sec-goto {
+    height: 150px;
+  }
+}
+
+/* footer */
+#footer {
+  display: flex;
+  justify-content: space-between;
+  height: var(--ftHeight);
+  align-items: center;
+  border-top: 1px solid #eee;
+  /* background-color: palevioletred; */
+}
+#footer .logo img {
+  filter: grayscale(100%);
+}
+#footer .logo,
+.copyright,
+.sns {
+  /* flex-grow: 1; */
+}
+
+/* tablet */
+@media screen and (max-width: 980px) {
+  #footer {
+    display: block;
+    height: auto;
+    background-color: #eee;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+/* mobile */
+@media screen and (max-width: 430px) {
+}
+
+.dimmed {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  /* position:absolute를 사용하면 전체 화면이 스크롤되면 같이 스크롤됨.
+  따라서 position:fixed로 설정해주는 것이 좋음 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  /* z-index의 범위값을 정해주면 편리
+  ex)
+  header 100
+  body 1000 */
+  /* width: 100%;
+  height: 100%; */
+}
+
+.dimmed .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-250px, -150px);
+  /* margin값으로 조정하면 부모요소에 따라 이동이 되기 때문에
+  자기 자신의 값에 따라 이동될 수 있도록
+  transform:translate(x,y)를 사용 */
+  width: 500px;
+  height: 300px;
+  background-color: var(--white);
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.modal-hd {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.modal-bd {
+  margin-bottom: 30px;
+  font-size: 0.875rem;
+}
+
+.btn-close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--black);
+  border-radius: 40px;
+  /* border-radius:50%로 해도 원이 됨 */
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+
+  /* ti--로 입력하면 text-indent:-9999px 자동입력 */
+}
+
+/* .btn-close i {
+  color: var(--white);
+  font-size: 1.25rem;
+  text-align: center;
+} */
+
+.btn-close::after {
+  content: "\f00d";
+  font-family: "Line Awesome Free";
+  font-weight: 900;
+  /* line-awesome 페이지에서 원하는 아이콘의 "검사"로 들어가서
+  ::before 나 ::after에 있는 content와 i태그의 폰트 속성들을 가져오면 됨 */
+}
+
+/* media query */
+/* min-width는 모바일에서 웹사이즈로 반응형 작업할 때 사용 */
+/* 먼저 작은 사이즈부터 작업 > 다음 min-width를 사용하여 웹 사이즈 작업 */
+/* max-width는 웹사이즈에서 모바일로 작업할 때 사용*/
+/* 웹에서 모바일로 바로 가면 깨질 수 있기 때문에 breakpoint를 많이 잡아줘야 함 */
+/* 따라서 모바일에서 웹으로 작업하는 경우가 많음 */
+/* min과 max를 혼용하지 않도록 */
+
+/*----------------------모바일 -> 웹----------------------*/
+/* body 잡을 때 width:100%;로 설정 */
+/* @media screen and (min-width)로 사이즈 조절 > 픽셀이 아닌 %로 값 설정해야 안 깨짐 */
+
+/* ----------------------웹 -> 모바일---------------------- */
+/* body 잡을 때 max-width(픽셀값);,
+   margin:0 auto; 설정*/
+/* @media screen and (max-width)로 사이즈 조절 > 픽셀로 설정 */
+
+/* w3 사이트
+-mq > 모바일에서 웹
+-mq예제 > 웹에서 모바일*/
+
+/* ----------------------배경에 사진 넣고 작업할 때 설정 값---------------------- */
+/* body {
+  background: url(../) no-repeat 50% 0;
+}
+.wrap {
+  opacity: 0.7;
+} */
