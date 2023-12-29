@@ -268,19 +268,73 @@
 }
 
 /* g */
-.sec-g {
+.tabs,
+.sec-bnt,
+.sec-goto {
   /* width: 33.333%; */
   flex-grow: 1;
   /* 1: true(참)/0: false(거짓) */
   flex-basis: 0;
   padding: 10px 0;
 }
+
 .sec-g .sec-tit {
   margin-bottom: 10px;
   font-size: 1.25rem;
 }
 
+/* tabs */
+.tabs {
+  display: flex;
+  position: relative;
+}
+.tabs .sec-g {
+  width: 50%;
+}
+.tabs .list-bbs,
+.tabs .list-gallery {
+  width: 100%;
+}
+/* active */
+.tabs .sec-tit {
+  background-color: #ccc;
+  transition: background-color, 0.3s;
+}
+.tabs .active .sec-tit {
+  background-color: #19414e;
+  color: #fff;
+}
+.tabs .list-g {
+  display: none;
+  transition: display, 0.3s;
+}
+.tabs .active .list-g {
+  display: block;
+  /* display: flex; */
+}
+.tabs .active .list-gallery {
+  display: flex;
+}
+
+.tabs .sec-tit {
+  height: auto;
+  padding: 5px 0;
+  /* border: 0.5px solid rgb(0, 0, 0); */
+  /* background-color: #ccc; */
+  text-align: center;
+}
 /* bbs */
+.list-bbs,
+.list-gallery {
+  width: 100%;
+  position: absolute;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
+  /* z-index: -1; */
+}
 .sec-bbs .list-bbs li {
   display: flex;
   gap: 10px;
@@ -304,6 +358,20 @@
   /* background-color: var(--black); */
 }
 
+/* gallery */
+
+.list-gallery {
+  /* display: none; */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; */
+}
+
+/* bnr */
 .sec-bnr {
   /* padding: 0; */
 }
@@ -477,6 +545,7 @@
   /* border-radius:50%로 해도 원이 됨 */
   border: none;
   color: var(--white);
+  cursor: pointer;
 
   /* ti--로 입력하면 text-indent:-9999px 자동입력 */
 }
