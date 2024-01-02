@@ -8,13 +8,13 @@
   --swiper-theme-color: #fff;
 
   --widthWrap: 1200px;
-  --minHeight: cal(
-    100vh - var(--hdHeight) - var(--ftHeight) - var(--slideHeight)
-  );
   --hdHeight: 100px;
   --ftHeight: 100px;
   --slideHeight: 300px;
   /* --minHeight: 100vh; */
+  --minHeight: calc(
+    100vh - var(--hdHeight) - var(--ftHeight) - var(--slideHeight)
+  );
 }
 
 /* reset */
@@ -156,10 +156,12 @@
     padding: 20px 0 10px;
     height: auto;
   }
-  #gnb .depth1 > li > a:hover {
+  /* #gnb .depth1 > li > a:hover {
     background: #222;
     color: #fff;
-  }
+  } */
+  /* js로 작업 */
+
   #gnb .depth1 > li > a {
     height: 50px;
   }
@@ -197,10 +199,11 @@
    부모는 자녀(자녀가 떠버리면(absolute))를 인식하지 못하기 때문에 부모에게 높이값을 넣어줘야 함
     */
   display: flex;
-  animation: ani-slide 10s linear infinite;
+  transition: left 0.3s;
+  /* animation: ani-slide 10s linear infinite; */
 }
 /* 슬라이드 효과 스와이퍼 없이 css로 주기 */
-@keyframes ani-slide {
+/* @keyframes ani-slide {
   0% {
     left: 0;
   }
@@ -222,7 +225,7 @@
   100% {
     left: 0;
   }
-}
+} */
 
 .slide ul a {
   display: block;
@@ -265,6 +268,7 @@
 .tabs {
   display: flex;
   position: relative;
+  cursor: pointer;
 }
 .tabs .sec-g {
   width: 50%;
@@ -330,7 +334,7 @@
   content: "";
   display: block;
   /* display: inline-block; */
-  vertical-align: middle;
+  /* vertical-align: middle; */
   width: 2px;
   height: 2px;
   /* background-color: var(--black); */
@@ -350,9 +354,9 @@
 }
 
 /* bnr */
-.sec-bnr {
-  /* padding: 0; */
-}
+/* .sec-bnr {
+  padding: 0;
+} */
 
 .sec-bnr .sec-tit,
 .sec-goto .sec-tit {
@@ -444,11 +448,11 @@
 #footer .logo img {
   filter: grayscale(100%);
 }
-#footer .logo,
+/* #footer .logo,
 .copyright,
 .sns {
-  /* flex-grow: 1; */
-}
+  flex-grow: 1;
+} */
 
 /* tablet */
 @media screen and (max-width: 980px) {
