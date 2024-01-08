@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax Scrolling - CSS</title>
+  </head>
+  <body>
+    <div class="box"></div>
+    <style>
+      .box {
+        display: none;
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+        background-color: palevioletred;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0 10px 10px #ddd;
+        /* perspective: 500px; */
+        /* perspective를 속성값으로 사용할 경우 부모에게 넣어줌 */
+        /* 속성 : value */
+      }
+      .box:hover {
+        transform: perspective(500px) rotateY(-180deg);
+        /* perspective를 value 값으로 사용할 경우 자식에게 넣어줌*/
+      }
+    </style>
+
+    <div class="wrap">
+      <div id="div1" class="parallax"></div>
+      <div id="div2" class="parallax"></div>
+      <div id="div3" class="parallax"></div>
+    </div>
+    <style>
+      .wrap {
+        position: relative;
+        height: 100vh;
+        overflow-x: hidden;
+        perspective: 1px;
+        /* perspective는 부모요소에 적용 */
+      }
+      .parallax {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      #div1 {
+        height: 150rem;
+        background-color: #333;
+      }
+      #div2 {
+        top: 300px;
+        height: 500px;
+        background-color: paleturquoise;
+        transform: translateZ(-2px);
+      }
+      #div3 {
+        top: 500px;
+        height: 500px;
+        background-color: peachpuff;
+        opacity: 0.5;
+        transform: translateZ(-1px);
+      }
+    </style>
+  </body>
+</html>
