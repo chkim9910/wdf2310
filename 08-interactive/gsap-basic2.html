@@ -22,7 +22,7 @@
       }
       .green {
         background: greenyellow;
-        transform-origin: 0 50%;
+        transform-origin: 0 0;
       }
       .purple {
         background: purple;
@@ -45,66 +45,28 @@
     </div>
 
     <script>
+      const tl = gsap.timeline();
+
+      // gsap.to('엘리먼트', 시간(초단위), { 옵션 });
+      tl.to(".sec-timeline .green", 2, { x: 100, scale: 3 })
+        .to(".sec-timeline .purple", 1, { y: -100, x: 500, scale: 3 })
+        .to(".sec-timeline .blue", 1, { rotation: 360, scale: 3 });
+
       // gsap 구문
-      //   gsap.to("element", duration, { option });
-      gsap.to(".sec-basic .green", 4, {
-        x: 1000,
-        rotation: 1080,
-        scale: 2,
-        backgroundColor: "pink",
-        repeat: -1,
-        yoyo: true,
-        yoyoEase: "power2.in",
-        // delay: 0.5,
-      });
-      gsap.from(".sec-basic .purple", 2, {
-        x: 400,
-        y: 400,
-        scale: 0,
-        rotation: 1440,
-        repeat: -1,
-        yoyo: true,
-        yoyoEase: "power2.in",
-        delay: 0.2,
+      gsap.to(".sec-basic .green", 1, { rotation: 360, x: 500, scale: 3 });
+      // from 상태에서 처음 상태로 돌아감
+      gsap.from(".sec-basic .purple", 1, {
+        rotation: -360,
+        x: 300,
+        y: 300,
+        scale: 3,
       });
       gsap.fromTo(
         ".sec-basic .blue",
-        2,
-        {
-          y: -300,
-          autoAlpha: 1,
-        },
-        {
-          y: 500,
-          autoAlpha: 1,
-          repeat: -1,
-          yoyo: true,
-          yoyoEase: "power2.in",
-        }
+        1,
+        { scale: 3 },
+        { scale: 10, opacity: 0.5 }
       );
-
-      const tl = gsap.timeline();
-      tl.to(".sec-timeline .green", {
-        duration: 2,
-        x: 1000,
-        rotate: 720,
-      })
-        .from(".sec-timeline .purple", {
-          duration: 2,
-          x: 1000,
-          y: -500,
-          rotate: 720,
-        })
-        .fromTo(
-          ".sec-timeline .blue",
-          {
-            duration: 2,
-            x: 0,
-          },
-          {
-            x: 1000,
-          }
-        );
     </script>
   </body>
 </html>
