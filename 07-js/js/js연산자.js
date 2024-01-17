@@ -112,6 +112,8 @@ console.log(function () {} || undefined || ""); // 함수 데이터는 참이기
 console.log(false || 0 || NaN); // 모두가 거짓이라면 마지막 데이터가 반환
 
 // Nullish 병합 연산자(??)
+// || 연산자와 비슷
+// null과 undefined는 제외하고 반환함
 const i = 0;
 const num1 = i || 5;
 console.log(num1); /* 5 */
@@ -123,3 +125,61 @@ const num2 = j ?? 5;
 console.log(num2);
 // ?? 연산자를 사용한 경우 null 또는 undefined는 무시하고 그 외의 값만 사용됨 > 제일 앞에 있는 값을 출력함
 // 0은 falsy 값이지만 null 또는 undefined가 아니므로 0이 반환됨
+
+console.log(null ?? 1); /* 1 */
+console.log(null ?? undefined); /* undefined */
+console.log(false ?? 1 ?? function () {}); /* false */
+
+// 삼항 연산자
+// 조건 ? 참일 때 반환 : 거짓일 때 반환
+console.log(1 > 2 ? "참" : "거짓");
+console.log(1 < 2 ? "참" : "거짓");
+// ex
+function isCat(text) {
+  return text === "고양이" ? "고양이" : "고양이 아님";
+}
+console.log(isCat("고양이")); /* 고양이 */
+// '고양이'를 인수로 넣으면 text라는 매개변수가 받음
+console.log(isCat("개")); /* 고양이 아님 */
+
+// 전개 연산자
+// ...을 사용하여 배열이나 객체를 펼칠 수 있음
+// - 배열의 전개
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+/* concat 매서드 사용 */
+console.log(array1.concat(array2)); /* [1, 2, 3, 4, 5, 6] */
+/* 전개 연산자 사용 */
+console.log([...array1, ...array2]); /* [1, 2, 3, 4, 5, 6] */
+
+// - 객체의 전개
+const dog = {
+  name: "멍멍이",
+  phon: "010-0000-1111",
+};
+
+const dogInfo = {
+  ...dog /* dog객체를 불러옴 */,
+  age: 2,
+};
+
+console.log(dogInfo);
+
+// - 함수의 전개
+// ...을 사용하여 파라미터(인수)를 전개할 수 있음
+function sum(a, b, c) {
+  console.log(a + b + c); /* {name: '멍멍이', phon: '010-0000-1111', age: 2}a */
+}
+
+console.log(sum(5, 6, 7)); /* 18 */
+
+// 배열을 파라미터(인수)로 전달하려면?
+const array3 = [5, 6, 7];
+const array4 = [8, 9, 10];
+
+sum(array3[0], array3[1], array3[2]); /* 18 */
+sum(array4[0], array4[1], array4[2]); /* 27 */
+
+// 전개 연산자를 사용해 인수 전달
+sum(...array3); /* 18 */
+sum(...array4); /* 27 */
