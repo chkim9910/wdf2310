@@ -183,3 +183,5 @@ sum(array4[0], array4[1], array4[2]); /* 27 */
 // 전개 연산자를 사용해 인수 전달
 sum(...array3); /* 18 */
 sum(...array4); /* 27 */
+
+sum(array3); /* 5,6,7undefinedundefined */
