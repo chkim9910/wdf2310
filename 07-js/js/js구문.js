@@ -234,4 +234,43 @@ for (let user of users) {
   users.reverse();
   console.log(user.name, user.age);
 }
-#4f854f
+
+// for in 문
+// for (변수 in 객체) {실행될 코드}
+const user = {
+  name: "겨울",
+  age: 2,
+};
+// 점 표기법
+console.log(user.name, user.age); /* 겨울 2 */
+// 대괄호 표기법 > 대괄호 안에 따옴표 필요
+console.log(user["name"], user["age"]); /* 겨울 2 */
+
+for (let key in user) {
+  console.log(key); /* name age */
+  // key는 변수이기 때문에 따옴표 쓰지 않음
+  console.log(user[key]); /* 겨울 2 */
+}
+
+// while문
+// while (조건) {실행될 코드}
+
+// 1~10 더하기
+let i = 1; /* 초기값 */
+let sum = 0; /* 합계를 저장할 변수 */
+
+while (i <= 10) {
+  sum += i;
+  i += 1; /* i++ 와 같은 의미 */
+}
+console.log(sum); /* 55 */
+
+// do while 문
+// do {실행될 코드} while (조건);
+
+let j = 0;
+
+do {
+  console.log(j);
+  j++;
+} while (j < 10); /* 0 1 2 3 4 5 6 7 8 9 */
