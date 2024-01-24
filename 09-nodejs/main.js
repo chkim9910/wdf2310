@@ -1,9 +1,9 @@
 // import Swiper JS
 import Swiper from "swiper";
-import "swiper/swiper.css";
+import "./node_modules/swiper/swiper.css";
 
 const swiper = new Swiper(".slide-main", {
-  direction: "vertical",
+  // direction: "vertical",
   loop: true,
   // If we need pagination
   pagination: {
