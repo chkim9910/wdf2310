@@ -190,3 +190,139 @@ const j = () => {
   return [1, 2];
 };
 const k = () => [1, 2];
+
+// - callback 함수
+const ab = (callback) => {
+  console.log("A");
+  callback();
+};
+
+const bc = () => {
+  console.log("B");
+};
+
+ab(bc); /* A B */
+
+// -- 1초 후에 콜백함수를 호출하는 함수
+// x, y를 인수로 전달받아 x + y를 반환하는 함수
+// setInterval(), clearInterval()는 호출하지 않아도 자동 실행됨
+// 단 clearInterval()를 자동 실행하기 위해서는 setInterval()를 변수 선언해주어야 함
+// setInterval() 인자 필요없음
+const Sum = (a, b, c) => {
+  setTimeout(() => {
+    return c(a + b);
+  }, 2000);
+};
+
+// console.log(Sum(1, 2)); /* undefined */
+// Sum 함수는 'setTimeout' 함수가 실행되기 전에 반환되므로 반환값은 undefined가 된다.
+
+Sum(1, 5, (f) => {
+  // console.log(f); /* 6 */
+});
+
+const Sum2 = setInterval(() => {
+  console.log(Sum(5, 8)); /* 13 */
+}, 1000);
+
+clearInterval(Sum2);
+
+// const x = (callback) => {
+//   setInterval(callback(), 1000);
+//   console.log("완료!");
+// };
+
+// const y = () => {
+//   console.log("1초 후 실행");
+//   console.log("2초 후 실행");
+//   console.log("3초 후 실행");
+// };
+
+// x(y);
+
+// - 재귀함수
+// 재귀 함수는 함수 내부에서 자기 자신을 호출하는 함수이다.
+
+let index = 0;
+
+const aaa = () => {
+  console.log("aaa"); /* aaa */
+  index++;
+  if (index < 5) {
+    aaa();
+  }
+};
+
+aaa();
+/* 
+aaa 
+aaa 
+aaa 
+aaa 
+aaa 
+*/
+
+// -- 최상위 부모 찾기
+const userA = { name: "userA", parent: null };
+const userB = { name: "userB", parent: userA };
+const userC = { name: "userC", parent: userB };
+const userD = { name: "userD", parent: userC };
+
+const getRootUser = (user) => {
+  if (user.parent) {
+    return getRootUser(user.parent);
+  }
+  return user;
+};
+
+console.log(getRootUser(userD)); /* {name: 'userA', parent: null} */
+
+// - this
+// 일반 함수function(){}는 호출 위치에서 this가 결정됨
+// 화살표 함수의 this는 자신이 선언된 "함수"에서 결정됨
+// 따라서 메서드를 쓸 때는 일반함수를 사용할 것
+
+const obj = {
+  drink: "Americano",
+  price: "$4.2",
+  // 일반함수 축약가능
+  front() {
+    return `${this.drink}는 ${this.price}입니다.`;
+  },
+  // front: function () {
+  //   return `${this.drink}는 ${this.price}입니다.`;
+  // },
+};
+console.log(obj.front()); /* Americano는 $4.2입니다. */
+
+const obj2 = {
+  drink: "Latte",
+  price: "$5.0",
+  front: () => {
+    return `${this.drink}는 ${this.price}입니다.`;
+  },
+};
+console.log(obj2.front()); /* undefined는 undefined입니다. */
+
+function coffee() {
+  this.drink = "cafeLatte";
+  this.price = "$5.2";
+  return {
+    drink: "Latte",
+    price: "$5.0",
+    front: () => {
+      return `${this.drink}는 ${this.price}입니다.`; /* 화살표함수를 쓴다면 상위에 함수를 만들어주어야 함 */
+    },
+  };
+}
+console.log(coffee().front()); /* cafeLatte는 $5.2입니다. */
+
+const obj3 = {
+  drink: "Latte",
+  price: "$5.0",
+  front: () => {
+    return `${this.drink}는 ${this.price}입니다.`;
+  },
+};
+/* 객체에서 벗어나 상위에 있는 함수를 살핌. 즉 객체에 있는 속성 값과 상관없는 결과값을 도출함*/
+console.log(obj3.front()); /* cafeLatte는 $5.2입니다. */
